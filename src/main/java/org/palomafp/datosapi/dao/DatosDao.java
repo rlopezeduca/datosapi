@@ -14,7 +14,7 @@ public class DatosDao {
   public DatosDao() {
     datos = new ArrayList<>();
 
-    Dato dato1 = new Dato(1, "Primer elemento de prueba XXX");
+    Dato dato1 = new Dato(1, "Primer elemento de prueba");
     Dato dato2 = new Dato(2, "Segundo elemento de prueba");
     Dato dato3 = new Dato(3, "Tercer elemento de prueba");
     Dato dato4 = new Dato(4, "Cuarto elemento de prueba");
