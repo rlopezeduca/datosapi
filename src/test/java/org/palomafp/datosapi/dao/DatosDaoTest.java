@@ -1,10 +1,11 @@
 package org.palomafp.datosapi.dao;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.palomafp.datosapi.model.Dato;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Pruebas unitarias para el DAO 'DatosDAO'.
@@ -14,16 +15,16 @@ class DatosDaoTest {
 
   @Test
   void obtenerTodos_devuelveCincoElementosIniciales() {
-    DatosDao datosDAO = new DatosDao();
-    List<Dato> datos = datosDAO.obtenerTodos();
+    DatosDao datosDao = new DatosDao();
+    List<Dato> datos = datosDao.obtenerTodos();
 
     assertEquals(5, datos.size());
   }
 
   @Test
   void obtenerPorCodigo_filtraCorrectamente() {
-    DatosDao datosDAO = new DatosDao();
-    List<Dato> filtrados = datosDAO.obtenerPorCodigo(1);
+    DatosDao datosDao = new DatosDao();
+    List<Dato> filtrados = datosDao.obtenerPorCodigo(1);
 
     assertEquals(1, filtrados.size());
     assertEquals(1, filtrados.get(0).getCodigo());
@@ -31,16 +32,16 @@ class DatosDaoTest {
 
   @Test
   void obtenerPorCodigo_inexistenteDevuelveListaVacia() {
-    DatosDao datosDAO = new DatosDao();
-    List<Dato> filtrados = datosDAO.obtenerPorCodigo(999);
+    DatosDao datosDao = new DatosDao();
+    List<Dato> filtrados = datosDao.obtenerPorCodigo(999);
 
     assertTrue(filtrados.isEmpty());
   }
 
   @Test
   void obtenerPorDescripcion_esCaseInsensitive() {
-    DatosDao datosDAO = new DatosDao();
-    List<Dato> filtrados = datosDAO.obtenerPorDescripcion("pRiMeR");
+    DatosDao datosDao = new DatosDao();
+    List<Dato> filtrados = datosDao.obtenerPorDescripcion("pRiMeR");
 
     assertEquals(1, filtrados.size());
     assertEquals(1, filtrados.get(0).getCodigo());
@@ -48,10 +49,10 @@ class DatosDaoTest {
 
   @Test
   void anyadir_agregaNuevoElemento() {
-    DatosDao datosDAO = new DatosDao();
-    datosDAO.anyadir(new Dato(6, "Elemento nuevo"));
+    DatosDao datosDao = new DatosDao();
+    datosDao.anyadir(new Dato(6, "Elemento nuevo"));
 
-    assertEquals(6, datosDAO.obtenerTodos().size());
-    assertEquals(1, datosDAO.obtenerPorCodigo(6).size());
+    assertEquals(6, datosDao.obtenerTodos().size());
+    assertEquals(1, datosDao.obtenerPorCodigo(6).size());
   }
 }

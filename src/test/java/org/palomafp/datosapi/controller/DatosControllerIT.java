@@ -15,7 +15,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
  * Estas pruebas verifican el comportamiento del controlador en conjunto con la
  * lógica de negocio y el DAO.
  */
-@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
 class DatosControllerIT {
 
   private MockMvc mockMvc;
