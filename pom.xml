@@ -80,12 +80,12 @@
                 <executions> 
                   <execution> 
                   <id>validate</id> 
-                  <phase>verify</phase> 
+                  <phase>validate</phase> 
                     <goals> 
                       <goal>check</goal> 
                     </goals> 
                   </execution> 
-                </executions> 
+            </executions> 
             </plugin> 
 		</plugins>
 	</build>
