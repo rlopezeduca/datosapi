@@ -66,6 +66,28 @@ public class DatosDao {
     return datosFiltrados;
   }
 
+  /**
+   * Obtiene datos cuya descripcion contiene el texto indicado.
+   *
+   * @param descripcion el texto a buscar en la descripcion
+   * @return lista de datos cuya descripcion contiene el texto indicado
+   */
+  public List<Dato> obtenerPorCodigoDescripcion(Integer codigo, String descripcion) {
+    List<Dato> datosFiltrados = new ArrayList<>();
+
+    for (Dato dato : datos) {
+      if ((codigo != null && dato.getCodigo() == codigo)
+          || (descripcion != null
+              && dato
+                  .getDescripcion()
+                  .toLowerCase(Locale.ROOT)
+                  .contains(descripcion.toLowerCase(Locale.ROOT)))) {
+        datosFiltrados.add(dato);
+      }
+    }
+    return datosFiltrados;
+  }
+
   public void anyadir(Dato dato) {
     datos.add(dato);
   }
